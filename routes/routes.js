@@ -26,4 +26,15 @@ app.post('/selectData', async (req, res) => {
         res.status(400).send({message: "Something was missing!"});
     }
 });
+
+app.post('/calc', async (req, res) => {
+    const numbers = req.body.numbers
+
+    if(numbers){
+        const num = eval(numbers)
+        res.status(200).send({ data: num })
+    }else{
+        res.status(400).send({message: "Something was missing!"});
+    }
+});
 module.exports = app
